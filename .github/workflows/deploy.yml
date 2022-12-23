@@ -36,7 +36,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Display DB name
-        run :  echo ${{MONGODB_USERNAME}}
+        run :  echo ${{env.MONGODB_USERNAME}}
       - name : Display Cluster name
         run : echo ${{MONGODB_CLUSTER_ADDRESS }}
       - name: Output information
