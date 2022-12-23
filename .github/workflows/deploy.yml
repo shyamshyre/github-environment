@@ -5,12 +5,12 @@ on:
       - main
       - dev
 env:
-  MONGODB_CLUSTER_ADDRESS: cluster0.t7l4sys.mongodb.net
   MONGODB_DB_NAME: test
   PORT: 3000
 jobs:
   test:
     env:
+      MONGODB_CLUSTER_ADDRESS: cluster0.t7l4sys.mongodb.net
       MONGODB_USERNAME: admin
       MONGODB_PASSWORD: admin1234
       environment: testing
