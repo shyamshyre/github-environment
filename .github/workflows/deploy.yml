@@ -4,7 +4,14 @@ on:
     branches:
       - main
       - dev
+env:
+  MONGODB_CLUSTER_ADDRESS: cluster0.t7l4sys.mongodb.net
+  MONGODB_DB_NAME: test
+  PORT: 3000
 jobs:
+  env:
+    MONGODB_USERNAME: admin
+    MONGODB_PASSWORD: admin1234
   test:
     environment: testing
     runs-on: ubuntu-latest
@@ -19,7 +26,7 @@ jobs:
       - name: Install dependencies
         run: npm ci
       - name: Run server
-        run: npm start & npx wait-on http://127.0.0.1:XYZ
+        run: npm start & npx wait-on http://127.0.0.1:$PORT
       - name: Run tests
         run: npm test
       - name: Output information
@@ -28,6 +35,10 @@ jobs:
     needs: test
     runs-on: ubuntu-latest
     steps:
+      - name: Display DB name
+        run :  echo ${{MONGODB_USERNAME}}
+      - name : Display Cluter name
+        run : echo ${{MONGODB_CLUSTER_ADDRESS}}
       - name: Output information
         run: |        
           echo "..."
