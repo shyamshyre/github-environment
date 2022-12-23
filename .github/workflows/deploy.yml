@@ -38,7 +38,7 @@ jobs:
       - name: Display DB name
         run :  echo ${{env.MONGODB_USERNAME}}
       - name : Display Cluster name
-        run : echo ${{MONGODB_CLUSTER_ADDRESS }}
+        run :  echo $MONGODB_CLUSTER_ADDRESS
       - name: Output information
         run: |        
           echo "..."
